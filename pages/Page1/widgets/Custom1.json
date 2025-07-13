@@ -1,0 +1,64 @@
+{
+  "backgroundColor": "#FFFFFF",
+  "borderColor": "#E0DEDE",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": "1",
+  "bottomRow": 97,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "defaultModel": "{\n  \"tips\": [\n    \"Pass data to this widget in the default model field\",\n    \"Access data in the javascript file using the appsmith.model variable\",\n    \"Create events in the widget and trigger them in the javascript file using appsmith.triggerEvent('eventName')\",\n    \"Access data in CSS as var(--appsmith-model-{property-name})\"\n  ]\n}",
+  "dynamicBindingPathList": [
+    {
+      "key": "theme"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicTriggerPathList": [
+    {
+      "key": "onResetClick"
+    }
+  ],
+  "events": [
+    "onResetClick"
+  ],
+  "isCanvas": false,
+  "isLoading": false,
+  "isSearchWildcard": true,
+  "isVisible": true,
+  "key": "1howukgdzt",
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 81,
+  "mobileLeftColumn": 11,
+  "mobileRightColumn": 34,
+  "mobileTopRow": 51,
+  "needsErrorInfo": false,
+  "onResetClick": "{{showAlert('Successfully reset!!', '');}}",
+  "parentColumnSpace": 19.8125,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 64,
+  "srcDoc": {
+    "css": ".app {\n  height: calc(var(--appsmith-ui-height) * 1px);\n  width: calc(var(--appsmith-ui-width) * 1px);\n  justify-content: center;\n  border-radius: var(--appsmith-theme-borderRadius);\n  box-shadow: var(--appsmith-theme-boxShadow);\n  padding: 29px 25px;\n  box-sizing: border-box;\n  font-family: system-ui;\n  background: #fff;\n}\n\n.tip-container {\n  margin-bottom: 20px;\n  font-size: 14px;\n  line-height: 1.571429;\n}\n\n.tip-container h2 {\n  margin-bottom: 20px;\n  font-size: 16px;\n  font-weight: 700;\n}\n\n.tip-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: baseline;\n  margin-bottom: 9px;\n}\n\n.tip-header div {\n  color: #999;\n}\n\n.content {\n  white-space: pre-wrap;\n  word-break: break-word;\n  font-size: 14px;\n  line-height: 1.571429;\n}\n\n.button-container {\n  text-align: right;\n  padding-top: 4px;\n}\n\n.button-container button {\n  margin: 0 10px;\n  cursor: pointer;\n  border-radius: var(--appsmith-theme-borderRadius);\n  padding: 6px 16px;\n  background: none;\n  height: auto;\n  transition: all 0.3s ease;\n}\n\n.button-container button.primary {\n  background: var(--appsmith-theme-primaryColor) !important;\n  color: #fff;\n  border: 1px solid var(--appsmith-theme-primaryColor) !important;\n}\n\n.button-container button.reset {\n  border: 1px solid #999;\n  color: #999;\n  outline: none;\n  box-shadow: none;\n}\n\n.button-container button.reset:hover:not(:disabled) {\n  color: var(--appsmith-theme-primaryColor);\n  border-color: var(--appsmith-theme-primaryColor);\n}\n\n.button-container button.reset:disabled {\n  cursor: default;\n}",
+    "html": "<!-- no need to write html, head, body tags, it is handled by the widget -->\n<div id=\"root\"></div>\n",
+    "js": "import React from \"https://esm.sh/react@18.2.0\";\nimport ReactDOM from \"https://esm.sh/react-dom@18.2.0\";\n\nconst Button = ({\n  children,\n  className,\n  ...props\n}) => /*#__PURE__*/React.createElement(\"button\", {\n  className: className,\n  ...props\n}, children);\n\nfunction App() {\n  const [currentIndex, setCurrentIndex] = React.useState(0);\n  const handleNext = () => {\n    setCurrentIndex(prevIndex => (prevIndex + 1) % appsmith.model.tips.length);\n  };\n  const handleReset = () => {\n    setCurrentIndex(0);\n    appsmith.triggerEvent(\"onResetClick\");\n  };\n  return /*#__PURE__*/React.createElement(\"div\", {\n    className: \"app\"\n  }, /*#__PURE__*/React.createElement(\"div\", {\n    className: \"tip-container\"\n  }, /*#__PURE__*/React.createElement(\"div\", {\n    className: \"tip-header\"\n  }, /*#__PURE__*/React.createElement(\"h2\", null, \"Custom Widget\"), /*#__PURE__*/React.createElement(\"div\", null, currentIndex + 1, \" / \", appsmith.model.tips.length)), /*#__PURE__*/React.createElement(\"div\", {\n    className: \"content\"\n  }, appsmith.model.tips[currentIndex])), /*#__PURE__*/React.createElement(\"div\", {\n    className: \"button-container\"\n  }, /*#__PURE__*/React.createElement(Button, {\n    className: \"primary\",\n    onClick: handleNext\n  }, \"Next Tip\"), /*#__PURE__*/React.createElement(Button, {\n    className: \"reset\",\n    disabled: currentIndex === 0,\n    onClick: handleReset\n  }, \"Reset\")));\n}\n\nappsmith.onReady(() => {\n    ReactDOM.render( /*#__PURE__*/React.createElement(App, null), document.getElementById(\"root\"));\n});"
+  },
+  "theme": "{{appsmith.theme}}",
+  "topRow": 63,
+  "type": "CUSTOM_WIDGET",
+  "uncompiledSrcDoc": {
+    "css": ".app {\n  height: calc(var(--appsmith-ui-height) * 1px);\n  width: calc(var(--appsmith-ui-width) * 1px);\n  justify-content: center;\n  border-radius: var(--appsmith-theme-borderRadius);\n  box-shadow: var(--appsmith-theme-boxShadow);\n  padding: 29px 25px;\n  box-sizing: border-box;\n  font-family: system-ui;\n  background: #fff;\n}\n\n.tip-container {\n  margin-bottom: 20px;\n  font-size: 14px;\n  line-height: 1.571429;\n}\n\n.tip-container h2 {\n  margin-bottom: 20px;\n  font-size: 16px;\n  font-weight: 700;\n}\n\n.tip-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: baseline;\n  margin-bottom: 9px;\n}\n\n.tip-header div {\n  color: #999;\n}\n\n.content {\n  white-space: pre-wrap;\n  word-break: break-word;\n  font-size: 14px;\n  line-height: 1.571429;\n}\n\n.button-container {\n  text-align: right;\n  padding-top: 4px;\n}\n\n.button-container button {\n  margin: 0 10px;\n  cursor: pointer;\n  border-radius: var(--appsmith-theme-borderRadius);\n  padding: 6px 16px;\n  background: none;\n  height: auto;\n  transition: all 0.3s ease;\n}\n\n.button-container button.primary {\n  background: var(--appsmith-theme-primaryColor) !important;\n  color: #fff;\n  border: 1px solid var(--appsmith-theme-primaryColor) !important;\n}\n\n.button-container button.reset {\n  border: 1px solid #999;\n  color: #999;\n  outline: none;\n  box-shadow: none;\n}\n\n.button-container button.reset:hover:not(:disabled) {\n  color: var(--appsmith-theme-primaryColor);\n  border-color: var(--appsmith-theme-primaryColor);\n}\n\n.button-container button.reset:disabled {\n  cursor: default;\n}",
+    "html": "<!-- no need to write html, head, body tags, it is handled by the widget -->\n<div id=\"root\"></div>\n",
+    "js": "import React from \"https://esm.sh/react@18.2.0\";\nimport ReactDOM from \"https://esm.sh/react-dom@18.2.0\";\n\nconst Button = ({ children, className, ...props }) => (\n  <button className={className} {...props}>\n    {children}\n  </button>\n);\n\nfunction App() {\n  const [currentIndex, setCurrentIndex] = React.useState(0);\n\n  const handleNext = () => {\n    setCurrentIndex((prevIndex) => (prevIndex + 1) % appsmith.model.tips.length);\n  };\n\n  const handleReset = () => {\n    setCurrentIndex(0);\n    appsmith.triggerEvent(\"onResetClick\");\n  };\n\n  return (\n    <div className=\"app\">\n      <div className=\"tip-container\">\n        <div className=\"tip-header\">\n          <h2>Custom Widget</h2>\n          <div>{currentIndex + 1} / {appsmith.model.tips.length}</div>\n        </div>\n        <div className=\"content\">{appsmith.model.tips[currentIndex]}</div>\n      </div>\n      <div className=\"button-container\">\n        <Button className=\"primary\" onClick={handleNext}>Next Tip</Button>\n        <Button className=\"reset\" disabled={currentIndex === 0} onClick={handleReset}>Reset</Button>\n      </div>\n    </div>\n  );\n}\n\nappsmith.onReady(() => {\n/*\n\t * This handler function will get called when parent application is ready.\n\t * Initialize your component here\n\t * more info - https://docs.appsmith.com/reference/widgets/custom#onready\n\t */\n    ReactDOM.render(<App />, document.getElementById(\"root\"));\n});"
+  },
+  "version": 1,
+  "widgetId": "e838lh03rn",
+  "widgetName": "Custom1"
+}
